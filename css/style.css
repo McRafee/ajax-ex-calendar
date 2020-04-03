@@ -6,11 +6,20 @@
     flex-direction: column;
 }
 
-#calendar li,
+#calendar li {
+    text-transform: capitalize;
+    list-style: none;
+    border: 1px solid rgba(175, 175, 175, 0.5);
+    font-size: 18px;
+    font-weight: bold;
+    margin: 1px 0;
+    padding: 10px 5px;
+    width: 400px;
+}
+
 #month {
     text-transform: capitalize;
 }
-
 .holiday {
     color: red;
 }
