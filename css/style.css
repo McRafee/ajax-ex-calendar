@@ -1,0 +1,16 @@
+.header,
+.main-calendar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#calendar li,
+#month {
+    text-transform: capitalize;
+}
+
+.holiday {
+    color: red;
+}
