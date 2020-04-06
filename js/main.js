@@ -13,6 +13,7 @@ $(document).ready(function() {
         if (initialDate.year() != "2018") {
             initialDate.year("2018");
         }
+        spaceBefore(initialDate);
         printDaysOfMonth(initialDate);
         printHolidays(initialDate);
     });
@@ -34,7 +35,6 @@ $(document).ready(function() {
         var daysOfMonth = monthToPrint.daysInMonth();
         var nameOfMonth = monthToPrint.format('MMMM');
         $('#month').text(nameOfMonth); // Update the name of month on top
-        var spacers = spaceBefore(initialDate);
         for (var i = 1; i <= daysOfMonth; i++) {
             // $('#calendar').append('<li>' + i + ' ' + nameOfMonth + '</li>');
             var dayToPrint = {
@@ -73,7 +73,7 @@ $(document).ready(function() {
         for (i = 0; i < initialDate.weekday()-1; i++) {
         spaces += '<div class="spacer pre"></div>';
         }
-        return spaces
+        $('.days').append(spaces);
     }
 
 });
