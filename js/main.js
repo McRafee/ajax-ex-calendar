@@ -1,4 +1,4 @@
-$(document).ready(function () {
+$(document).ready(function() {
     // Handlebars
     var dayHTML = $('#calendar-template').html();
     var dayTemplate = Handlebars.compile(dayHTML);
@@ -8,7 +8,7 @@ $(document).ready(function () {
     printHolidays(initialDate);
 
     // Click to print the following month
-    $('.next').click(function () {
+    $('.next').click(function() {
         initialDate.add(1, 'month');
         if (initialDate.year() != "2018") {
             initialDate.year("2018");
@@ -18,7 +18,7 @@ $(document).ready(function () {
     });
 
     // Click to print the previous month
-    $('.prev').click(function () {
+    $('.prev').click(function() {
         initialDate.subtract(1, 'month');
         if (initialDate.year() != "2018") {
             initialDate.year("2018");
@@ -55,7 +55,7 @@ $(document).ready(function () {
                 year: 2018,
                 month: month
             },
-            success: function (data) {
+            success: function(data) {
                 var holidays = data.response;
                 for (var i = 0; i < holidays.length; i++) {
                     var holiday = holidays[i];
