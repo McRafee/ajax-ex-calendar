@@ -1,12 +1,18 @@
-.header,
+/* * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+} */
+
+/* .header,
 .main-calendar {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-}
+} */
 
-#calendar li {
+/* #calendar li {
     text-transform: capitalize;
     list-style: none;
     border: 1px solid rgba(175, 175, 175, 0.5);
@@ -15,11 +21,113 @@
     margin: 1px 0;
     padding: 10px 5px;
     width: 400px;
-}
+} */
 
 #month {
     text-transform: capitalize;
 }
 .holiday {
     color: red;
+}
+
+html, body {
+    height: 100vh;
+}
+
+body {
+    min-width: 500px;
+}
+body > section {
+    box-sizing: border-box;
+    padding: 10vmin;
+    height: 100vh;
+}
+
+#calendar {
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+#calendar > header {
+    flex-grow: 7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#calendar .day-names {
+    flex-grow: 5;
+    display: flex;
+    align-items: center;
+}
+
+#calendar .day-names p {
+    flex-grow: 1;
+    text-align: center;
+}
+
+#calendar .days {
+    flex-grow: 88;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+#calendar .days > div {
+    width: calc(100% * 1/7);
+}
+
+/* Appearance */
+#calendar {
+    font-family: 'Source Sans Pro', Arial, sans-serif;
+    font-weight: 900; text-transform: uppercase;
+    border: 1px solid #D5D5D5;
+}
+
+#calendar > header {
+    background: #FCFCFC;
+}
+
+#calendar > header h1 {
+    font-size: 2em;
+    color: #333;
+}
+
+#calendar .day-names {
+    background: #D5D5D5;
+}
+
+#calendar .day-names, #calendar .days {
+    font-size: 0.825em;
+    color: #666;
+}
+
+#calendar .spacer  {
+    background: #F5F5F5;
+}
+
+#calendar .days > div {
+    box-sizing: border-box;
+    border: 1px solid #F5F5F5;
+    border-width: 1px 0 0 1px;
+}
+
+#calendar .days > div:nth-child(-n+7) {
+    border-top-width: 0;
+}
+
+#calendar .days > div:nth-child(7n+1) {
+    border-left-width: 0;
+}
+
+#calendar .days > div:nth-child(7n+6), #calendar .days > div:nth-child(7n+7) {
+    background: #FEFEFE;
+}
+
+#calendar .day-number {
+    float: right;
+    padding: 1em;
 }

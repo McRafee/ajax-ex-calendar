@@ -29,7 +29,7 @@ $(document).ready(function() {
 
 
     function printDaysOfMonth(monthToPrint) {
-        $('#calendar').empty();
+        $('.days').empty();
         var standardDay = monthToPrint.clone();
         var daysOfMonth = monthToPrint.daysInMonth();
         var nameOfMonth = monthToPrint.format('MMMM');
@@ -41,7 +41,7 @@ $(document).ready(function() {
                 dataDay: standardDay.format('YYYY-MM-DD')
             }
             var finalTemplate = dayTemplate(dayToPrint); // Populate the template with the object data
-            $('#calendar').append(finalTemplate);
+            $('#calendar .days').append(finalTemplate);
             standardDay.add(1, 'day');
         }
     }
@@ -61,7 +61,7 @@ $(document).ready(function() {
                     var holiday = holidays[i];
                     var nameOfHoliday = holiday.name;
                     var dateOfHoliday = holiday.date;
-                    $('#calendar li[data-day="' + dateOfHoliday + '"]').addClass('holiday').append(' - ' + nameOfHoliday);
+                    $('.day-number[data-day="' + dateOfHoliday + '"]').addClass('holiday').append(' - ' + nameOfHoliday);
                 }
             }
         });
