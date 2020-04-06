@@ -34,10 +34,11 @@ $(document).ready(function() {
         var daysOfMonth = monthToPrint.daysInMonth();
         var nameOfMonth = monthToPrint.format('MMMM');
         $('#month').text(nameOfMonth); // Update the name of month on top
+        var spacers = spaceBefore(initialDate);
         for (var i = 1; i <= daysOfMonth; i++) {
             // $('#calendar').append('<li>' + i + ' ' + nameOfMonth + '</li>');
             var dayToPrint = {
-                day: i + ' ' + nameOfMonth,
+                day: "<h2>"+ i +"</h2>",
                 dataDay: standardDay.format('YYYY-MM-DD')
             }
             var finalTemplate = dayTemplate(dayToPrint); // Populate the template with the object data
@@ -61,10 +62,18 @@ $(document).ready(function() {
                     var holiday = holidays[i];
                     var nameOfHoliday = holiday.name;
                     var dateOfHoliday = holiday.date;
-                    $('.day-number[data-day="' + dateOfHoliday + '"]').addClass('holiday').append(' - ' + nameOfHoliday);
+                    $('.day-number[data-day="' + dateOfHoliday + '"]').addClass('holiday').append( "<p>" + nameOfHoliday + "</p>");
                 }
             }
         });
+    }
+
+    function spaceBefore(initialDate) {
+        var spaces;
+        for (i = 0; i < initialDate.weekday()-1; i++) {
+        spaces += '<div class="spacer pre"></div>';
+        }
+        return spaces
     }
 
 });
