@@ -4,33 +4,38 @@ $(document).ready(function() {
     var dayTemplate = Handlebars.compile(dayHTML);
 
     var initialDate = moment('2018-01-01');
+
+    spaceBefore(initialDate.weekday());
     printDaysOfMonth(initialDate); // Calendar initialization
     printHolidays(initialDate);
 
+
     // Click to print the following month
     $('.next').click(function() {
+        $('.days').empty();
         initialDate.add(1, 'month');
         if (initialDate.year() != "2018") {
             initialDate.year("2018");
         }
-        spaceBefore(initialDate);
+        spaceBefore(initialDate.weekday());
         printDaysOfMonth(initialDate);
         printHolidays(initialDate);
     });
 
     // Click to print the previous month
     $('.prev').click(function() {
+        $('.days').empty();
         initialDate.subtract(1, 'month');
         if (initialDate.year() != "2018") {
             initialDate.year("2018");
         }
+        spaceBefore(initialDate.weekday());
         printDaysOfMonth(initialDate);
         printHolidays(initialDate);
     });
 
 
     function printDaysOfMonth(monthToPrint) {
-        $('.days').empty();
         var standardDay = monthToPrint.clone();
         var daysOfMonth = monthToPrint.daysInMonth();
         var nameOfMonth = monthToPrint.format('MMMM');
@@ -68,12 +73,12 @@ $(document).ready(function() {
         });
     }
 
-    function spaceBefore(initialDate) {
-        var spaces;
-        for (i = 0; i < initialDate.weekday()-1; i++) {
+    function spaceBefore(numOfDayofWeek) {
+        var spaces = "";
+        for (i = 0; i < numOfDayofWeek; i++) {
         spaces += '<div class="spacer pre"></div>';
         }
-        $('.days').append(spaces);
+        $('#calendar .days').append(spaces);
     }
 
 });

@@ -43,6 +43,7 @@ body > section {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    background: #F5F5F5;
 }
 
 #calendar .days > div {
@@ -92,13 +93,16 @@ body > section {
     border-left-width: 0;
 }
 
-#calendar .days > div:nth-child(7n+6), #calendar .days > div:nth-child(7n+7) {
-    background: #FEFEFE;
+/* #calendar .days > div:nth-child(7n+6),  */
+#calendar .days > div:nth-child(7n+7) {
+    /* background: #FEFEFE; */
+    color: red;
 }
 
 #calendar .day {
-    width: 100%;
-    height: 80px;
+    /* width: 40px; */
+    /* height: 40px; */
+    background-color: #ffffff;
 }
 
 #calendar .day-number {
@@ -106,6 +110,7 @@ body > section {
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    position: relative;
 }
 
 #calendar .day-number h2 {
@@ -114,6 +119,9 @@ body > section {
 
 #calendar .day-number p {
     font-size: 10px;
+    margin: 5px;
+    position: absolute;
+    top: 35px;
 }
 
 #month {
